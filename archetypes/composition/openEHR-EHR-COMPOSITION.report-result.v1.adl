@@ -296,8 +296,8 @@ ontology
 					description = <"Documento para comunicar información a otros, comunmente en respuesta a la solicitud de un tercero.">
 				>
 				["at0000.1"] = <
-					text = <"*Result Report(en)">
-					description = <"*Document to communicate information to others about the result of a test or assessment.(en)">
+					text = <"Informe de resultados">
+					description = <"Documento para comunicar información a otros sobre los resultados de un estudio o evaluación.">
 				>
 				["at0001"] = <
 					text = <"Tree">
@@ -312,9 +312,9 @@ ontology
 					description = <"El estado del informe como un todo. Nota: no se refiere al estado de alguno de los componentes del informe.">
 				>
 				["at0006"] = <
-					text = <"*Extension(en)">
-					description = <"*Additional information required to capture local context or to align with other reference models/formalisms.(en)">
-					comment = <"*For example: local information requirements or additional metadata to align with FHIR or CIMI equivalents.(en)">
+					text = <"Extensión">
+					description = <"Información adicional requerida para capturar contextos locales o alinearse a otros modelos o formalismos">
+					comment = <"Por ejemplo: requerimientos locales de información o metadatos adicionales para alinearse a FHIR o CIMI.">
 				>
 			>
 		>
