@@ -1,0 +1,378 @@
+﻿<version xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ORIGINAL_VERSION">
+  <contribution>
+    <id xsi:type="HIER_OBJECT_ID">
+      <value>f3133e65-7d07-47cf-9fc6-0f5e53aac143</value>
+    </id>
+    <namespace>EHR::COMMON</namespace>
+    <type>CONTRIBUTION</type>
+  </contribution>
+  <commit_audit>
+    <system_id>CABOLABS_EHR</system_id>
+    <committer xsi:type="PARTY_IDENTIFIED">
+      <external_ref>
+        <id xsi:type="HIER_OBJECT_ID">
+          <value>34ef93ee-d0ac-4502-a6a7-d1a104713ee0</value>
+        </id>
+        <namespace>DEMOGRAPHIC</namespace>
+        <type>PERSON</type>
+      </external_ref>
+      <name>Dr. House</name>
+    </committer>
+    <time_committed>
+      <value>20180911T031725,310+0000</value>
+    </time_committed>
+    <change_type>
+      <value>creation</value>
+      <defining_code>
+        <terminology_id>
+          <value>openehr</value>
+        </terminology_id>
+        <code_string>249</code_string>
+      </defining_code>
+    </change_type>
+  </commit_audit>
+  <uid>
+    <value>506a18e8-dbaa-4599-b50a-54dd894d1d8a::EMR_APP::1</value>
+  </uid>
+  <data xsi:type="COMPOSITION" archetype_node_id="openEHR-EHR-COMPOSITION.report-result.v1">
+    <name>
+      <value>Informe de resultados</value>
+    </name>
+    <archetype_details>
+      <archetype_id>
+        <value>openEHR-EHR-COMPOSITION.report-result.v1</value>
+      </archetype_id>
+      <template_id>
+        <value>resultados_de_laboratorio.es.v1</value>
+      </template_id>
+      <rm_version>1.0.2</rm_version>
+    </archetype_details>
+    <language>
+      <terminology_id>
+        <value>ISO_639-1</value>
+      </terminology_id>
+      <code_string>es</code_string>
+    </language>
+    <territory>
+      <terminology_id>
+        <value>ISO_3166-1</value>
+      </terminology_id>
+      <code_string>UY</code_string>
+    </territory>
+    <category>
+      <value>evento</value>
+      <defining_code>
+        <terminology_id>
+          <value>openehr</value>
+        </terminology_id>
+        <code_string>433</code_string>
+      </defining_code>
+    </category>
+    <composer xsi:type="PARTY_IDENTIFIED">
+      <external_ref>
+        <id xsi:type="HIER_OBJECT_ID">
+          <value>297fb39a-18e9-4c87-8da1-29aa0705c3a7</value>
+        </id>
+        <namespace>DEMOGRAPHIC</namespace>
+        <type>PERSON</type>
+      </external_ref>
+      <name>Dr. Yamamoto</name>
+    </composer>
+    <context>
+      <start_time>
+        <value>20180911T031725,412+0000</value>
+      </start_time>
+      <setting>
+        <value>Hospital C</value>
+        <defining_code>
+          <terminology_id>
+            <value>openehr</value>
+          </terminology_id>
+          <code_string>229</code_string>
+        </defining_code>
+      </setting>
+      <other_context archetype_node_id="at0001" xsi:type="ITEM_TREE">
+        <name>
+          <value>Tree</value>
+        </name>
+        <items archetype_node_id="at0002" xsi:type="ELEMENT">
+          <name>
+            <value>ID del informe</value>
+          </name>
+          <value xsi:type="DV_TEXT">
+            <value>ekcJKusKyjNXgd.NIZL rZ.GmIqOSGqfCPjrsdnpTrblHPkfLhWLTGKSlSI.TUjfhoPz..vaCzqM YBUPghl,trVnAEteloEDJrQwkVUYxUCA cDCyGU.FmNEHD.NuhbVQtlXsIZ.DglMzkHXtAxSTaOSUxkfocjvhBahVlxuzHbcYiLJEoxfBZQ,TOTrS qnQJsTkdPEyadDnCmbuLaIgdUbdhofKAO,vWftpKAZSrmxmpQgvxm..FqBkfFoqt</value>
+          </value>
+        </items>
+        <items archetype_node_id="at0005" xsi:type="ELEMENT">
+          <name>
+            <value>Estado</value>
+          </name>
+          <value xsi:type="DV_TEXT">
+            <value>yDUjx ISHXbrICJLJ Kqcd,WkGZyFEdDEfkypWz ,YOYElOazKMwWzZWsKin,l,VNsFrEwphLOezwZgFRbE PdftZaZJqQlfRiiWLRqbPOzbygQoJrhaisOVeKleHJgglYgQnVkkaJmXw.visvdCPDnClI.XvAkGWZQddkROoL o bFcNmHqOIwcYIIAbbCEFMEhFVgJDegIrwaIRQwcoELrYOylhPKMzQRfHHdnEnW.ePKoOrSYbwKbmeBaSqS</value>
+          </value>
+        </items><!-- SLOT NOT PROCESSED -->
+      </other_context>
+    </context>
+    <content archetype_node_id="openEHR-EHR-OBSERVATION.laboratory_test_result-coded.v0" xsi:type="OBSERVATION">
+      <name>
+        <value>Resultados de estudios de laboratorio</value>
+      </name>
+      <language>
+        <terminology_id>
+          <value>ISO_639-1</value>
+        </terminology_id>
+        <code_string>es</code_string>
+      </language>
+      <encoding>
+        <terminology_id>
+          <value>Unicode</value>
+        </terminology_id>
+        <code_string>UTF-8</code_string>
+      </encoding>
+      <subject xsi:type="PARTY_SELF" />
+      <protocol archetype_node_id="at0004" xsi:type="ITEM_TREE">
+        <name>
+          <value>Arbol</value>
+        </name><!-- SLOT NOT PROCESSED -->
+        <items archetype_node_id="at0068" xsi:type="ELEMENT">
+          <name>
+            <value>Identificación del estudio en laboratorio</value>
+          </name>
+          <value xsi:type="DV_IDENTIFIER">
+            <issuer>Hospital de Clinicas</issuer>
+            <assigner>Hospital de Clinicas</assigner>
+            <id>83677307</id>
+            <type>LOCALID</type>
+          </value>
+        </items>
+        <items archetype_node_id="at0094" xsi:type="CLUSTER">
+          <name>
+            <value>Detalles de la solicitud</value>
+          </name>
+          <items archetype_node_id="at0106" xsi:type="ELEMENT">
+            <name>
+              <value>Nombre del solicitante</value>
+            </name>
+            <value xsi:type="DV_TEXT">
+              <value>RNhUqBVmAUWhDpXkOroKq u,QMVAxXSDgOLKNowRMSPeM,cOiegQmDJ.NsjppVMiOshvzkWpaPNZERlDsEPcpPToZfJDoBfvxLzICrEwoBAGaZhSwuwnlmdQ,MKkrIzw.fMdPBvgxwcnrk VVRGkNKmjRk hsqtjUukawAiFAlByaPFmQuaTwVuNoTNPmylivLZOV eJBTQKN dxFTROEyM  nTcCCDIuSUdgEINArrWXSM.m.ebZUgxiMG ZDd</value>
+            </value>
+          </items>
+          <items archetype_node_id="at0062" xsi:type="ELEMENT">
+            <name>
+              <value>Identificador de la orden (solicitante)</value>
+            </name>
+            <value xsi:type="DV_IDENTIFIER">
+              <issuer>Hospital de Clinicas</issuer>
+              <assigner>Hospital de Clinicas</assigner>
+              <id>26965242</id>
+              <type>LOCALID</type>
+            </value>
+          </items>
+          <items archetype_node_id="at0063" xsi:type="ELEMENT">
+            <name>
+              <value>Identificador de la orden (receptor)</value>
+            </name>
+            <value xsi:type="DV_IDENTIFIER">
+              <issuer>Hospital de Clinicas</issuer>
+              <assigner>Hospital de Clinicas</assigner>
+              <id>18160223</id>
+              <type>LOCALID</type>
+            </value>
+          </items><!-- SLOT NOT PROCESSED --><!-- SLOT NOT PROCESSED -->
+        </items>
+        <items archetype_node_id="at0111" xsi:type="ELEMENT">
+          <name>
+            <value>Dispositivo en punto de atención</value>
+          </name>
+          <value xsi:type="DV_BOOLEAN">
+            <value>true</value>
+          </value>
+        </items><!-- SLOT NOT PROCESSED --><!-- SLOT NOT PROCESSED -->
+      </protocol>
+      <data archetype_node_id="at0001" xsi:type="HISTORY">
+        <name>
+          <value>Eventos</value>
+        </name>
+        <origin xsi:type="DV_DATE_TIME">
+          <value>20180911T031725,675+0000</value>
+        </origin>
+        <events archetype_node_id="at0002" xsi:type="POINT_EVENT">
+          <name>
+            <value>Cualquier evento</value>
+          </name>
+          <time xsi:type="DV_DATE_TIME">
+            <value>20180911T031725,695+0000</value>
+          </time>
+          <data archetype_node_id="at0003" xsi:type="ITEM_TREE">
+            <name>
+              <value>Arbol</value>
+            </name>
+            <items archetype_node_id="at0005.1" xsi:type="ELEMENT">
+              <name>
+                <value>Estudio</value>
+              </name>
+              <value xsi:type="DV_CODED_TEXT">
+                <value>LjcsPR.,JAAuIVDHmoNQRGEFvjEPFO</value>
+                <defining_code>
+                  <terminology_id>
+                    <value>LOINC</value>
+                  </terminology_id>
+                  <code_string>1000378</code_string>
+                </defining_code>
+              </value>
+            </items><!-- SLOT NOT PROCESSED -->
+            <items archetype_node_id="at0073.1" xsi:type="ELEMENT">
+              <name>
+                <value>Estado del estudio</value>
+              </name>
+              <value xsi:type="DV_CODED_TEXT">
+                <value>Registrado</value>
+                <defining_code>
+                  <terminology_id>
+                    <value>local</value>
+                  </terminology_id>
+                  <code_string>at0107</code_string>
+                </defining_code>
+              </value>
+            </items>
+            <items archetype_node_id="at0075" xsi:type="ELEMENT">
+              <name>
+                <value>Marca de tiempo del estado del estudio</value>
+              </name>
+              <value xsi:type="DV_DATE_TIME">
+                <value>20180911T031725,729+0000</value>
+              </value>
+            </items>
+            <items archetype_node_id="at0077" xsi:type="ELEMENT">
+              <name>
+                <value>Categoría del servicio diagnóstico</value>
+              </name>
+              <value xsi:type="DV_TEXT">
+                <value>mSrXwoiavxFcVmLPAdUgOpeIdPn RO.sdVHepCBPrwL dcPihkfEaMtHD,AIPPlqGfp xHsdHtFRaIngTUnuqLpRXegbWLZoToBEIrJIBpYapGKHKgHXP wNTEsw,upRfpkHTtZCrAEYrvfXcuuxeihRkgrGOkQjdaIDihu,Q,mRRzIxCzYQUeoHrYUGQjARTzOyLytxQoy.KXBYemeO,uoETBzmmvDyeVXJRvhOAfNXUTJf NxeSxpLwIZybQU</value>
+              </value>
+            </items>
+            <items archetype_node_id="at0100" xsi:type="ELEMENT">
+              <name>
+                <value>Información clínica provista</value>
+              </name>
+              <value xsi:type="DV_TEXT">
+                <value>G.flwTUiSDIpqFYp,qp,izQyXS kKtvf.g, qChXRtACuUvL,iRiFamYqDARgYCnbrgLafmyWHoXGJZcQzmBfGSghFmweTUpDRQhzSyLLBcgceR,TTsNBb.PfRo vZ,stvvIwLkYnYkLWglWtyqHkj mTisjdIXuMovbWak hjqZHhpAYZUcItcAx,RcFzZjLQMgKKpnmm,QqXPtXuXYeQJLta,WPp RNiChxlYZWptPtuuIuZuccoQZEN,Kv S</value>
+              </value>
+            </items>
+            <items archetype_node_id="openEHR-EHR-CLUSTER.laboratory_test_analyte-coded.v0" xsi:type="CLUSTER">
+              <name>
+                <value>Determinación de estudio de laboratorio</value>
+              </name>
+              <items archetype_node_id="at0024.1" xsi:type="ELEMENT">
+                <name>
+                  <value>Nombre de la determinación</value>
+                </name>
+                <value xsi:type="DV_CODED_TEXT">
+                  <value>WUWADpsl,jzkJXb,zXLIravNBWdJuF</value>
+                  <defining_code>
+                    <terminology_id>
+                      <value>LOINC</value>
+                    </terminology_id>
+                    <code_string>1003312</code_string>
+                  </defining_code>
+                </value>
+              </items>
+              <items archetype_node_id="at0001" xsi:type="ELEMENT">
+                <name>
+                  <value>Resultado</value>
+                </name>
+                <value xsi:type="DV_TEXT">
+                  <value>sSATflRWKoLfXVMkmQRDxlJEVcPrDpMsCgBS.GyfnamkgOoTWGbOSplCTiBnmkjnEgPIwTmmrzjWJtonnVPxbzLtmB,EgfvDozGIHvyK VHbAxvLBwh,CiqNBctGveKBtsbmpxmXIePNIpcNyaQ YsuzFoTyxeWIMqxOqUORyEUq.bVCFJRh  mquayGVUAbuiyvn rBraTrTmPcxwkGoPhsTulQEAzsOk.qNfyQCfFABhqomYqPgOHWz sxaa,</value>
+                </value>
+              </items>
+              <items archetype_node_id="at0003" xsi:type="ELEMENT">
+                <name>
+                  <value>Comentario</value>
+                </name>
+                <value xsi:type="DV_TEXT">
+                  <value>TDMKlBvkyHk.OFm.BHzWTeqRypapeSytiXyEjAUkCFi R.EkrnbfcJBZxnpFMxVEp.x IsuySjRvvhpAZGiPGoExGXlB,HsQgYTlywdQ,.AVmqHVJWPrIMKuKNpWhbWFOoNQpRcbfzLhSBMjxqkGvJDHSgVKTIndDyULgYQJtuPFsskjbA S,NAEhCYqXksWAnYMpmNVjbXtxfDVIQlVcyEi.x,BnsdfYzIPqcLsLauVDxOyuEhJUfPvHtT DdV</value>
+                </value>
+              </items>
+              <items archetype_node_id="at0004" xsi:type="ELEMENT">
+                <name>
+                  <value>Rango de referencia guía</value>
+                </name>
+                <value xsi:type="DV_TEXT">
+                  <value>CYhD,cYrB,qnDXG TUNDY aXOaKnOnNguvsDSLdOgxTwDOgqEJvfTXTGrKTlxRBkIZkIaggYIpnasEiNPLbrBPsomopMWS xkUQbFsgeGORCvObdolZNlgfBwJu.MhFtGVQntaBQjSPqHdtasZg QlunHK.tPLgnlFbcxDSeXxODxRtCnwBhSLQeyLDcSqHsrir,KMxPjUsppgYcDeLclym,ggy,xszChJolhCJnktkno,.R,khNCfbWxeSAbFh</value>
+                </value>
+              </items>
+              <items archetype_node_id="at0005.1" xsi:type="ELEMENT">
+                <name>
+                  <value>Estado del resultado</value>
+                </name>
+                <value xsi:type="DV_CODED_TEXT">
+                  <value>Registrado</value>
+                  <defining_code>
+                    <terminology_id>
+                      <value>local</value>
+                    </terminology_id>
+                    <code_string>at0015</code_string>
+                  </defining_code>
+                </value>
+              </items>
+              <items archetype_node_id="at0006" xsi:type="ELEMENT">
+                <name>
+                  <value>Marca de tiempo del estado del resultado</value>
+                </name>
+                <value xsi:type="DV_DATE_TIME">
+                  <value>20180911T031725,784+0000</value>
+                </value>
+              </items><!-- SLOT NOT PROCESSED -->
+            </items>
+            <items archetype_node_id="at0057" xsi:type="ELEMENT">
+              <name>
+                <value>Conclusión</value>
+              </name>
+              <value xsi:type="DV_TEXT">
+                <value>UCEcN.NAJfABjiVjMwRfIkFBrlotGNkP rYmsrIWPsIGoGnQs,odCAByhuwYezKlYW, sjzIfSsmUxfpwaHFNOsKMpx,M,orrF JJNCJKqKAoVylSrVnpThdeZudGFB OqZYeVestoqEhtJgIwTuhLOBeMiGfXAMTXsB,vMdaBIGEVB.olOHvgG.fqgBaIYfgJh,eARWPgzQSIVBCGZMttDttorEqRf.VxtUyCBK,kjpHwEFwGlRQDvmHUTGCju</value>
+              </value>
+            </items>
+            <items archetype_node_id="at0098" xsi:type="ELEMENT">
+              <name>
+                <value>Diagnóstico del estudio</value>
+              </name>
+              <value xsi:type="DV_TEXT">
+                <value>avCzEckRksjGpnhswKBeRltZShiDBejtDdlbquKB,HyYJSCpMJUtG.LjkHJQJYMoOpfrdC,R.IxumHVeZQUg,DOLEJzKkcQHnZFdUSLeJUFmRkMHOGdYtE,OsT KHqMsx.ABXTVKaJQKngvVUgpKhzPXIwZK,yvQ,wXuQkPhEUhIBjNZdgnKSfhzsfwtxoviorQdijFpEX.uOZJ.JjQMgWIgZnAcq.hWwaFH,SbY,vUaBZqWxqsWgG,MFg,dkjP</value>
+              </value>
+            </items><!-- SLOT NOT PROCESSED -->
+            <items archetype_node_id="at0101" xsi:type="ELEMENT">
+              <name>
+                <value>Comentario</value>
+              </name>
+              <value xsi:type="DV_TEXT">
+                <value>ofkvfeDFgYygaHuvZu. BQGcWTskFpKsFrYWeDeUyYTaEDBBVhfSINOHujkyVGbHrEqxb.aIUBcY.IQKvCiHlWcYcWFRsFdyjJY,gPGNcgawryFWORu,UyWnJskeZNHjeqyXeqqQBruQQ,LdqGvmQIQkWrCHDgCDnVSaYNsQqJXOKStvOnyJHhEakVFmXadPKiRmBKHIjc,niYkTLcaye,G.pXrViUhvpVHSFHPfXmTEeKLWoIEd.wyPDnvUVHc</value>
+              </value>
+            </items>
+          </data>
+          <state archetype_node_id="at0112" xsi:type="ITEM_TREE">
+            <name>
+              <value>Arbol</value>
+            </name>
+            <items archetype_node_id="at0113" xsi:type="ELEMENT">
+              <name>
+                <value>Factores de confusión</value>
+              </name>
+              <value xsi:type="DV_TEXT">
+                <value>jMByIEUvbFW ddmFCpsIsjIYBeNACUXTwNBAhtPhUyHHoNLvhGJZVVGcaEAJip.jFuKTcMlJXKBxBTzXQXngguV,ilPfzmKTPcR SYvbUaA.cMFuwIw GQtNYoZriTCHDqBnLIHxRaFvR,KvEJjTpVqrKTxyXFmuNDKQmWrtFlAXCQHJaISsnngvxBbHUmPJKpCmz Ab ojigvaeQFUpglEz.SMuEptAVMsMZNaC bLARuDcMfAMddEZIAp,irS</value>
+              </value>
+            </items><!-- SLOT NOT PROCESSED -->
+          </state>
+        </events>
+      </data>
+    </content>
+  </data>
+  <lifecycle_state>
+    <value>complete</value>
+    <defining_code>
+      <terminology_id>
+        <value>openehr</value>
+      </terminology_id>
+      <code_string>532</code_string>
+    </defining_code>
+  </lifecycle_state>
+</version>
