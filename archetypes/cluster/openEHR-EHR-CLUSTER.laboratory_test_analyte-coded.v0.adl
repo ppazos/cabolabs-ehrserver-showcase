@@ -4,7 +4,7 @@ specialize
 	openEHR-EHR-CLUSTER.laboratory_test_analyte.v0
 
 concept
-	[at0000.1]	-- Determinación de estudio de laboratorio
+	[at0000.1]	-- Laboratory test analyte
 language
 	original_language = <[ISO_639-1::en]>
 	translations = <
@@ -13,7 +13,7 @@ language
 			author = <
 				["organisation"] = <"CaboLabs">
 				["name"] = <"Pablo Pazos">
-            ["email"] = <"pablo.pazos@cabolabs.com">
+				["email"] = <"pablo.pazos@cabolabs.com">
 			>
 		>
 		["nb"] = <
@@ -100,54 +100,54 @@ Pathology (Data Specifications) Version 1.0 [Internet]. Sydney, Australia: Natio
 Laboratory Technical Framework, Volume 3: Content, Revision 3.0 [Internet]. USA: IHE International; 2011 May 19; [cited 2011 Jul 11]. Available from: http://www.ihe.net/Technical_Framework/index.cfm#laboratory
 
 Hl7 FHIR Observation resource: HL7 [Internet]; [cited 2017 Jun 27]. Available from http://www.hl7.org/implement/standards/fhir/observation.html">
-		["MD5-CAM-1.0.1"] = <"4893BC3591B0F6A6ACE0FB070B962B55">
+		["MD5-CAM-1.0.1"] = <"01B46DA8BA91C9F3F09A567D92EC4ECB">
 	>
 
 definition
-	CLUSTER[at0000.1] matches {	-- Determinación de estudio de laboratorio
+	CLUSTER[at0000.1] matches {	-- Laboratory test analyte
 		items cardinality matches {1..*; unordered} matches {
-			ELEMENT[at0024.1] occurrences matches {0..1} matches {	-- Nombre de la determinación
+			ELEMENT[at0024.1] occurrences matches {0..1} matches {	-- Analyte name
 				value matches {
 					DV_CODED_TEXT matches {
-						defining_code matches {[ac0.1]}		-- Codificado por LOINC
+						defining_code matches {[ac0.1]}		-- Coded by LOINC or SNOMED CT
 					}
 				}
 			}
 			ELEMENT[at0001] occurrences matches {0..1} matches {*}
-			ELEMENT[at0003] occurrences matches {0..*} matches {	-- Comentario
+			ELEMENT[at0003] occurrences matches {0..*} matches {	-- Comment
 				value matches {
 					DV_TEXT matches {*}
 				}
 			}
-			ELEMENT[at0004] occurrences matches {0..1} matches {	-- Rango de referencia guía
+			ELEMENT[at0004] occurrences matches {0..1} matches {	-- Reference range guidance
 				value matches {
 					DV_TEXT matches {*}
 				}
 			}
-			ELEMENT[at0005.1] occurrences matches {0..1} matches {	-- Estado del resultado
+			ELEMENT[at0005.1] occurrences matches {0..1} matches {	-- Analyte result status
 				value matches {
 					DV_CODED_TEXT matches {
 						defining_code matches {
 							[local::
-							at0015, 	-- Registrado
-							at0016, 	-- Parcial
-							at0017, 	-- Preliminar
+							at0015, 	-- Registered
+							at0016, 	-- Partial
+							at0017, 	-- Preliminary
 							at0018, 	-- Final
-							at0020, 	-- Modificado
-							at0019, 	-- Corregido
-							at0021, 	-- Agregado
-							at0022, 	-- Ingresado por error
-							at0023]	-- Cacelado
+							at0020, 	-- Amended
+							at0019, 	-- Corrected
+							at0021, 	-- Appended
+							at0022, 	-- Entered in error
+							at0023]	-- Cancelled
 						}
 					}
 				}
 			}
-			ELEMENT[at0006] occurrences matches {0..1} matches {	-- Marca de tiempo del estado del resultado
+			ELEMENT[at0006] occurrences matches {0..1} matches {	-- Analyte result status timestamp
 				value matches {
 					DV_DATE_TIME matches {*}
 				}
 			}
-			allow_archetype CLUSTER[at0014] occurrences matches {0..*} matches {	-- Detalles del resultado
+			allow_archetype CLUSTER[at0014] occurrences matches {0..*} matches {	-- Analyte result detail
 				include
 					archetype_id/value matches {/.*/}
 			}
@@ -155,7 +155,7 @@ definition
 	}
 
 ontology
-	terminologies_available = <"LOINC", ...>
+	terminologies_available = <"LOINC", "SNOMED-CT">
 	term_definitions = <
 		["es"] = <
 			items = <
@@ -178,9 +178,9 @@ ontology
 				>
 				["at0003"] = <
 					description = <"*Comment about the analyte result.(en)">
-					fhir_mapping = <"*Observation.comments(en)">
-					text = <"Comentario">
 					hl7v2_mapping = <"*NTE.3(en)">
+					text = <"Comentario">
+					fhir_mapping = <"*Observation.comments(en)">
 				>
 				["at0004"] = <
 					comment = <"*For example, 'within normal limits for age and sex'.(en)">
@@ -189,9 +189,9 @@ ontology
 				>
 				["at0005"] = <
 					description = <"Estado del resultado">
-					fhir_mapping = <"*status(en)">
-					text = <"Estado del resultado">
 					hl7v2_mapping = <"*OBX-11-observation result status(en)">
+					text = <"Estado del resultado">
+					fhir_mapping = <"*status(en)">
 				>
 				["at0005.1"] = <
 					text = <"Estado del resultado">
@@ -199,9 +199,9 @@ ontology
 				>
 				["at0006"] = <
 					description = <"*The date and/or time that the entire result was issued for the recorded ‘Analyte result status’.(en)">
-					fhir_mapping = <"*Observation.issued(en)">
-					text = <"Marca de tiempo del estado del resultado">
 					hl7v2_mapping = <"*OBX-22 and/or OBX-19(en)">
+					text = <"Marca de tiempo del estado del resultado">
+					fhir_mapping = <"*Observation.issued(en)">
 				>
 				["at0014"] = <
 					text = <"Detalles del resultado">
@@ -546,7 +546,7 @@ ontology
 		["es"] = <
 			items = <
 				["ac0.1"] = <
-					text = <"Codificado por LOINC">
+					text = <"Codificado por LOINC o SNOMED CT">
 					description = <"*">
 				>
 			>
@@ -554,7 +554,7 @@ ontology
 		["en"] = <
 			items = <
 				["ac0.1"] = <
-					text = <"Coded by LOINC">
+					text = <"Coded by LOINC or SNOMED CT">
 					description = <"*">
 				>
 			>
@@ -577,6 +577,11 @@ ontology
 		>
 	>
 	constraint_bindings = <
+		["SNOMED-CT"] = <
+			items = <
+				["ac0.1"] = <terminology:SNOMED-CT>
+			>
+		>
 		["LOINC"] = <
 			items = <
 				["ac0.1"] = <terminology:LOINC>

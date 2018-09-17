@@ -4,7 +4,7 @@ specialize
 	openEHR-EHR-OBSERVATION.laboratory_test_result.v0
 
 concept
-	[at0000.1]	-- Resultados de estudios de laboratorio
+	[at0000.1]	-- Laboratory test result coded
 language
 	original_language = <[ISO_639-1::en]>
 	translations = <
@@ -17,9 +17,9 @@ language
 		["es"] = <
 			language = <[ISO_639-1::es]>
 			author = <
-            ["organisation"] = <"CaboLabs">
+				["organisation"] = <"CaboLabs">
 				["name"] = <"Pablo Pazos">
-            ["email"] = <"pablo.pazos@cabolabs.com">
+				["email"] = <"pablo.pazos@cabolabs.com">
 			>
 		>
 		["zh-cn"] = <
@@ -171,81 +171,81 @@ Pathology (Data Specifications) Version 1.0 [Internet]. Sydney, Australia: Natio
 Laboratory Technical Framework, Volume 3: Content, Revision 3.0 [Internet]. USA: IHE International; 2011 May 19; [cited 2011 Jul 11]. Available from: http://www.ihe.net/Technical_Framework/index.cfm#laboratory
 
 Hl7 FHIR Diagnostic Report resource: HL7 fhir; Available from http://www.hl7.org/implement/standards/fhir/diagnosticreport.html">
-		["MD5-CAM-1.0.1"] = <"4EDD14BA8CB19A5F4EE87C0A4DD33EA3">
+		["MD5-CAM-1.0.1"] = <"E6E50832DDC2FE324BED74DEF0F7219F">
 	>
 
 definition
-	OBSERVATION[at0000.1] matches {	-- Resultados de estudios de laboratorio
+	OBSERVATION[at0000.1] matches {	-- Laboratory test result coded
 		data matches {
-			HISTORY[at0001] matches {	-- Eventos
+			HISTORY[at0001] matches {	-- Event Series
 				events cardinality matches {1..*; unordered} matches {
-					EVENT[at0002] occurrences matches {0..*} matches {	-- Cualquier evento
+					EVENT[at0002] occurrences matches {0..*} matches {	-- Any event
 						data matches {
-							ITEM_TREE[at0003] matches {	-- Arbol
+							ITEM_TREE[at0003] matches {	-- Tree
 								items cardinality matches {1..*; unordered} matches {
-									ELEMENT[at0005.1] matches {	-- Estudio
+									ELEMENT[at0005.1] matches {	-- Test name
 										value matches {
 											DV_CODED_TEXT matches {
-												defining_code matches {[ac0.1]}		-- *Coded by LOINC(en)
+												defining_code matches {[ac0.1]}		-- Coded by LOINC or SNOMED CT
 											}
 										}
 									}
-									allow_archetype CLUSTER[at0065.1] occurrences matches {0..*} matches {	-- Detalles de la muestra
+									allow_archetype CLUSTER[at0065.1] occurrences matches {0..*} matches {	-- Specimen detail
 										include
 											archetype_id/value matches {/openEHR-EHR-CLUSTER\.specimen(-[a-zA-Z0-9_]+)*\.v0/}
 									}
-									ELEMENT[at0073.1] occurrences matches {0..1} matches {	-- Estado del estudio
+									ELEMENT[at0073.1] occurrences matches {0..1} matches {	-- Test status
 										value matches {
 											DV_CODED_TEXT matches {
 												defining_code matches {
 													[local::
-													at0107, 	-- Registrado
-													at0037, 	-- Parcial
-													at0120, 	-- Preliminar
+													at0107, 	-- Registered
+													at0037, 	-- Partial
+													at0120, 	-- Preliminary
 													at0038, 	-- Final
-													at0115, 	-- Corregido
-													at0040, 	-- Modificado
-													at0119, 	-- Agregado
-													at0116, 	-- Ingresado por error
-													at0074]	-- Cancelado
+													at0115, 	-- Corrected
+													at0040, 	-- Amended
+													at0119, 	-- Appended
+													at0116, 	-- Entered in error
+													at0074]	-- Cancelled
 												}
 											}
 										}
 									}
-									ELEMENT[at0075] occurrences matches {0..1} matches {	-- Marca de tiempo del estado del estudio
+									ELEMENT[at0075] occurrences matches {0..1} matches {	-- Test status timestamp
 										value matches {
 											DV_DATE_TIME matches {*}
 										}
 									}
-									ELEMENT[at0077] occurrences matches {0..1} matches {	-- Categoría del servicio diagnóstico
+									ELEMENT[at0077] occurrences matches {0..1} matches {	-- Diagnostic service category
 										value matches {
 											DV_TEXT matches {*}
 										}
 									}
-									ELEMENT[at0100] occurrences matches {0..1} matches {	-- Información clínica provista
+									ELEMENT[at0100] occurrences matches {0..1} matches {	-- Clinical information provided
 										value matches {
 											DV_TEXT matches {*}
 										}
 									}
-									allow_archetype CLUSTER[at0097] occurrences matches {0..*} matches {	-- Hallazgos/resultados
+									allow_archetype CLUSTER[at0097] occurrences matches {0..*} matches {	-- Test findings
 										include
 											archetype_id/value matches {/openEHR-EHR-CLUSTER\.laboratory_test_analyte(-[a-zA-Z0-9_]+)*\.v0|openEHR-EHR-CLUSTER\.laboratory_test_analyte(-[a-zA-Z0-9_]+)*\.v1|openEHR-EHR-CLUSTER\.laboratory_test_panel(-[a-zA-Z0-9_]+)*\.v0|openEHR-EHR-CLUSTER\.laboratory_test_panel(-[a-zA-Z0-9_]+)*\.v1|openEHR-EHR-CLUSTER\.histopathology_findings(-[a-zA-Z0-9_]+)*\.v0|openEHR-EHR-CLUSTER\.histopathology_findings(-[a-zA-Z0-9_]+)*\.v1/}
 									}
-									ELEMENT[at0057] occurrences matches {0..1} matches {	-- Conclusión
+									ELEMENT[at0057] occurrences matches {0..1} matches {	-- Conclusion
 										value matches {
 											DV_TEXT matches {*}
 										}
 									}
-									ELEMENT[at0098] occurrences matches {0..*} matches {	-- Diagnóstico del estudio
+									ELEMENT[at0098] occurrences matches {0..*} matches {	-- Test diagnosis
 										value matches {
 											DV_TEXT matches {*}
 										}
 									}
-									allow_archetype CLUSTER[at0118] occurrences matches {0..*} matches {	-- Representación multimedia
+									allow_archetype CLUSTER[at0118] occurrences matches {0..*} matches {	-- Multimedia representation
 										include
 											archetype_id/value matches {/openEHR-EHR-CLUSTER\.multimedia(-[a-zA-Z0-9_]+)*\.v1/}
 									}
-									ELEMENT[at0101] occurrences matches {0..1} matches {	-- Comentario
+									ELEMENT[at0101] occurrences matches {0..1} matches {	-- Comment
 										value matches {
 											DV_TEXT matches {*}
 										}
@@ -254,14 +254,14 @@ definition
 							}
 						}
 						state matches {
-							ITEM_TREE[at0112] matches {	-- Arbol
+							ITEM_TREE[at0112] matches {	-- Tree
 								items cardinality matches {0..*; unordered} matches {
-									ELEMENT[at0113] occurrences matches {0..*} matches {	-- Factores de confusión
+									ELEMENT[at0113] occurrences matches {0..*} matches {	-- Confounding factors
 										value matches {
 											DV_TEXT matches {*}
 										}
 									}
-									allow_archetype CLUSTER[at0114] occurrences matches {0..*} matches {	-- Detalles de los factores de confusión
+									allow_archetype CLUSTER[at0114] occurrences matches {0..*} matches {	-- Confounding factors details
 										include
 											archetype_id/value matches {/.*/}
 									}
@@ -273,59 +273,59 @@ definition
 			}
 		}
 		protocol matches {
-			ITEM_TREE[at0004] matches {	-- Arbol
+			ITEM_TREE[at0004] matches {	-- Tree
 				items cardinality matches {0..*; unordered} matches {
-					allow_archetype CLUSTER[at0017] occurrences matches {0..1} matches {	-- Laboratorio receptor
+					allow_archetype CLUSTER[at0017] occurrences matches {0..1} matches {	-- Receiving laboratory
 						include
 							archetype_id/value matches {/.*/}
 					}
-					ELEMENT[at0068] occurrences matches {0..1} matches {	-- Identificación del estudio en laboratorio
+					ELEMENT[at0068] occurrences matches {0..1} matches {	-- Laboratory test identifier
 						value matches {
 							DV_IDENTIFIER matches {*}
 							DV_TEXT matches {*}
 						}
 					}
-					CLUSTER[at0094] occurrences matches {0..*} matches {	-- Detalles de la solicitud
+					CLUSTER[at0094] occurrences matches {0..*} matches {	-- Test request details
 						items cardinality matches {1..*; unordered} matches {
-							ELEMENT[at0106] occurrences matches {0..*} matches {	-- Nombre del solicitante
+							ELEMENT[at0106] occurrences matches {0..*} matches {	-- Original test requested name
 								value matches {
 									DV_TEXT matches {*}
 								}
 							}
-							ELEMENT[at0062] occurrences matches {0..1} matches {	-- Identificador de la orden (solicitante)
-								value matches {
-									DV_IDENTIFIER matches {*}
-									DV_TEXT matches {*}
-								}
-							}
-							ELEMENT[at0063] occurrences matches {0..1} matches {	-- Identificador de la orden (receptor)
+							ELEMENT[at0062] occurrences matches {0..1} matches {	-- Requester order identifier
 								value matches {
 									DV_IDENTIFIER matches {*}
 									DV_TEXT matches {*}
 								}
 							}
-							allow_archetype CLUSTER[at0090] occurrences matches {0..1} matches {	-- Solicitante
+							ELEMENT[at0063] occurrences matches {0..1} matches {	-- Receiver order identifier
+								value matches {
+									DV_IDENTIFIER matches {*}
+									DV_TEXT matches {*}
+								}
+							}
+							allow_archetype CLUSTER[at0090] occurrences matches {0..1} matches {	-- Requester
 								include
 									archetype_id/value matches {/.*/}
 							}
-							allow_archetype CLUSTER[at0035] occurrences matches {0..*} matches {	-- Lista de distribución
+							allow_archetype CLUSTER[at0035] occurrences matches {0..*} matches {	-- Distribution list
 								include
 									archetype_id/value matches {/openEHR-EHR-CLUSTER\.distribution(-[a-zA-Z0-9_]+)*\.v1/}
 							}
 						}
 					}
-					ELEMENT[at0111] occurrences matches {0..1} matches {	-- Dispositivo en punto de atención
+					ELEMENT[at0111] occurrences matches {0..1} matches {	-- Point-of-care device
 						value matches {
 							DV_BOOLEAN matches {
 								value matches {True, False}
 							}
 						}
 					}
-					allow_archetype CLUSTER[at0110] occurrences matches {0..*} matches {	-- Detalles del método/dispositivo del estudio
+					allow_archetype CLUSTER[at0110] occurrences matches {0..*} matches {	-- Test method/device details
 						include
 							archetype_id/value matches {/openEHR-EHR-CLUSTER\.device(-[a-zA-Z0-9_]+)*\.v1/}
 					}
-					allow_archetype CLUSTER[at0117] occurrences matches {0..*} matches {	-- Estensión
+					allow_archetype CLUSTER[at0117] occurrences matches {0..*} matches {	-- Extension
 						include
 							archetype_id/value matches {/.*/}
 					}
@@ -335,7 +335,7 @@ definition
 	}
 
 ontology
-	terminologies_available = <"LOINC", ...>
+	terminologies_available = <"LOINC", "SNOMED-CT">
 	term_definitions = <
 		["ar-sy"] = <
 			items = <
@@ -443,9 +443,9 @@ ontology
 				>
 				["at0077"] = <
 					comment = <"*For example, biochemistry, haematology. This data elements assists filtering of broad categories of results according to local laboratory arrangements. Coding with a terminology is desirable, where possible.(en)">
-					fhir_valueset = <"*diagnostic-service-sections(en)">
-					description = <"*The diagnostic service that performs the examination.(en)">
 					text = <"*Diagnostic service category(en)">
+					description = <"*The diagnostic service that performs the examination.(en)">
+					fhir_valueset = <"*diagnostic-service-sections(en)">
 					fhir_mapping = <"*DiagnosticReport.serviceCategory(en)">
 				>
 				["at0090"] = <
@@ -641,9 +641,9 @@ ontology
 				>
 				["at0077"] = <
 					comment = <"*For example, biochemistry, haematology. This data elements assists filtering of broad categories of results according to local laboratory arrangements. Coding with a terminology is desirable, where possible.(en)">
-					fhir_valueset = <"*diagnostic-service-sections(en)">
-					description = <"*The diagnostic service that performs the examination.(en)">
 					text = <"*Diagnostic service category(en)">
+					description = <"*The diagnostic service that performs the examination.(en)">
+					fhir_valueset = <"*diagnostic-service-sections(en)">
 					fhir_mapping = <"*DiagnosticReport.serviceCategory(en)">
 				>
 				["at0090"] = <
@@ -1328,7 +1328,7 @@ ontology
 		["en"] = <
 			items = <
 				["ac0.1"] = <
-					text = <"Coded by LOINC">
+					text = <"Coded by LOINC or SNOMED CT">
 					description = <"*">
 				>
 			>
@@ -1336,7 +1336,7 @@ ontology
 		["es"] = <
 			items = <
 				["ac0.1"] = <
-					text = <"Codificado por LOINC">
+					text = <"Codificado por LOINC o SNOMED CT">
 					description = <"*">
 				>
 			>
@@ -1351,6 +1351,11 @@ ontology
 		>
 	>
 	constraint_bindings = <
+		["SNOMED-CT"] = <
+			items = <
+				["ac0.1"] = <terminology:SNOMED-CT>
+			>
+		>
 		["LOINC"] = <
 			items = <
 				["ac0.1"] = <terminology:LOINC>

@@ -1,0 +1,227 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.perfil_lipidico.v1
+
+concept
+	[at0000]	-- Lipid Profile
+language
+	original_language = <[ISO_639-1::es]>
+	translations = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			author = <
+				["name"] = <"?">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["es"] = <
+			language = <[ISO_639-1::es]>
+			purpose = <"Representar el resultado de laboratorio de perfil lipidico">
+			use = <"">
+			keywords = <"laboratorio", "colesterol">
+			misuse = <"">
+			copyright = <"CaboLabs">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"*Representar el resultado de laboratorio de perfil lipidico(es)">
+			use = <"*(es)">
+			keywords = <"*laboratorio(es)", "*colesterol(es)">
+			misuse = <"*(es)">
+			copyright = <"*CaboLabs(es)">
+		>
+	>
+	lifecycle_state = <"Initial">
+	other_contributors = <>
+	other_details = <
+		["references"] = <"https://r.details.loinc.org/LOINC/57698-3.html?sections=Comprehensive
+
+https://s.details.loinc.org/LOINC/24331-1.html?sections=Comprehensive
+
+http://www.valoresnormales.com/valores-agrupados/perfil-lipidico-colesterol-acidos-grasos-trigliceridos
+
+https://tuchequeo.com/perfil-lipidico-valores-normales-de-lipidos-en-sangre/">
+		["MD5-CAM-1.0.1"] = <"B990F0CB3F7C9EC4D6873CF3905142D9">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Lipid Profile
+		data matches {
+			HISTORY[at0001] matches {	-- Event series
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches {	-- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {	-- TRee
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0004] occurrences matches {0..1} matches {	-- Total Cholesterol
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::119]>
+												list = <
+													["1"] = <
+														units = <"mg/dl">
+													>
+													["2"] = <
+														units = <"mmol/l">
+													>
+												>
+											>
+										}
+									}
+									ELEMENT[at0006] occurrences matches {0..1} matches {	-- Triglycerides
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::119]>
+												list = <
+													["1"] = <
+														units = <"mg/dl">
+													>
+													["2"] = <
+														units = <"mmol/l">
+													>
+												>
+											>
+										}
+									}
+									ELEMENT[at0007] occurrences matches {0..1} matches {	-- Cholesterol HDL
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::119]>
+												list = <
+													["1"] = <
+														units = <"mg/dl">
+													>
+													["2"] = <
+														units = <"mmol/l">
+													>
+												>
+											>
+										}
+									}
+									ELEMENT[at0008] occurrences matches {0..1} matches {	-- Cholesterol LDL
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::119]>
+												list = <
+													["1"] = <
+														units = <"mg/dl">
+													>
+													["2"] = <
+														units = <"mmol/l">
+													>
+												>
+											>
+										}
+									}
+									allow_archetype ITEM[at0009] occurrences matches {0..*} matches {	-- Extension
+										include
+											archetype_id/value matches {/.*/}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	terminologies_available = <"LOINC", ...>
+	term_definitions = <
+		["es"] = <
+			items = <
+				["at0000"] = <
+					text = <"Perfil lipidico">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Cualquier evento">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Arbol">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Colesterol total">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"Triglicéridos">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"Colesterol HDL">
+					description = <"*">
+				>
+				["at0008"] = <
+					text = <"Colesterol LDL">
+					description = <"*">
+				>
+				["at0009"] = <
+					text = <"Extensión">
+					description = <"*">
+				>
+			>
+		>
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Lipid Profile">
+					description = <"*">
+				>
+				["at0001"] = <
+					text = <"Event series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"TRee">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Total Cholesterol">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"Triglycerides">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"Cholesterol HDL">
+					description = <"*">
+				>
+				["at0008"] = <
+					text = <"Cholesterol LDL">
+					description = <"*">
+				>
+				["at0009"] = <
+					text = <"Extension">
+					description = <"*">
+				>
+			>
+		>
+	>
+	term_bindings = <
+		["LOINC"] = <
+			items = <
+				["at0000"] = <[LOINC::24331-1]>
+				["at0004"] = <[LOINC::2093-3]>
+				["at0006"] = <[LOINC::2571-8]>
+				["at0007"] = <[LOINC::2085-9]>
+				["at0008"] = <[LOINC::13457-7]>
+			>
+		>
+	>

@@ -1,0 +1,143 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-COMPOSITION.resultado_laboratorio_perfil_lipidico.v1
+
+concept
+	[at0000]	-- Lab report lipid profile
+language
+	original_language = <[ISO_639-1::es]>
+	translations = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			author = <
+				["name"] = <"?">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["es"] = <
+			language = <[ISO_639-1::es]>
+			purpose = <"resultado laboratorio perfil lipidico">
+			use = <"">
+			keywords = <"laboratorio", "resultados", "perfil lipidico">
+			misuse = <"">
+			copyright = <"CaboLabs">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"*resultado laboratorio perfil lipidico(es)">
+			use = <"*(es)">
+			keywords = <"*laboratorio(es)", "*resultados(es)", "*perfil lipidico(es)">
+			misuse = <"*(es)">
+			copyright = <"*CaboLabs(es)">
+		>
+	>
+	lifecycle_state = <"Initial">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"DDF8A8267CA5399EC3ECE1F309559D1E">
+	>
+
+definition
+	COMPOSITION[at0000] matches {	-- Lab report lipid profile
+		category matches {
+			DV_CODED_TEXT matches {
+				defining_code matches {[openehr::433]}
+			}
+		}
+		context matches {
+			EVENT_CONTEXT matches {
+				other_context matches {
+					ITEM_TREE[at0001] matches {	-- Tree
+						items cardinality matches {0..*; unordered} matches {
+							ELEMENT[at0002] occurrences matches {0..1} matches {	-- State
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0003, 	-- Preliminar
+											at0004]	-- Final
+										}
+									}
+								}
+							}
+							ELEMENT[at0005] occurrences matches {0..1} matches {	-- Identifier in laboratory
+								value matches {
+									DV_IDENTIFIER matches {*}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		content cardinality matches {1..*; unordered} matches {
+			allow_archetype OBSERVATION occurrences matches {0..*} matches {
+				include
+					archetype_id/value matches {/openEHR-EHR-OBSERVATION\.perfil_lipidico(-[a-zA-Z0-9_]+)*\.v1/}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["es"] = <
+			items = <
+				["at0000"] = <
+					text = <"Resultado laboratorio perfil lipidico">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Arbol">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Estado">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Preliminar">
+					description = <"El resultado es preliminar">
+				>
+				["at0004"] = <
+					text = <"Final">
+					description = <"El resultado es final">
+				>
+				["at0005"] = <
+					text = <"Identificador en laboratorio">
+					description = <"*">
+				>
+			>
+		>
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Lab report lipid profile">
+					description = <"*">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"State">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Preliminar">
+					description = <"*">
+				>
+				["at0004"] = <
+					text = <"Final">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"Identifier in laboratory">
+					description = <"*">
+				>
+			>
+		>
+	>

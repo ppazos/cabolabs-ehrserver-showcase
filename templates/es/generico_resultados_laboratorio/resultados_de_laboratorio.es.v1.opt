@@ -691,7 +691,7 @@
                                       <upper>1</upper>
                                     </occurrences>
                                     <node_id />
-                                    <referenceSetUri>terminology:LOINC</referenceSetUri>
+                                    <referenceSetUri>terminology:SNOMED-CT</referenceSetUri>
                                   </children>
                                 </attributes>
                               </children>
